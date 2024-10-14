@@ -5,12 +5,18 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin("*")
 public class SimpleController {
 
+    record Links(String title, String url){}
+
     @GetMapping
-    public ResponseEntity<String> hello() {
-        return ResponseEntity.ok("Hello World!");
+    public ResponseEntity<List<Links>> hello() {
+        return ResponseEntity.ok(List.of(
+                new Links("Person","/persons")
+        ));
     }
 }

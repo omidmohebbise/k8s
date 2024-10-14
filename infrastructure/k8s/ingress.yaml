@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: http-redirect-ingress
+#  annotations:
+#    nginx.ingress.kubernetes.io/default-backend: "default-http-backend"
+spec:
+  rules:
+    - host: omid1312.ir
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: app-stack-service
+                port:
+                  number: 80

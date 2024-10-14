@@ -9,13 +9,13 @@ services:
     environment:
       POSTGRES_PASSWORD: 123
       POSTGRES_USER: user
-      POSTGRES_DB: security-db
+      POSTGRES_DB: testdb
     ports:
       - "5432:5432"
   api:
     build:
-      context: ./spring-api
-    image: k8s-example-api:latest
+      context: ../spring-api
+    image: omidmohebbi/simple-spring-api:latest
     container_name: k8s-example-api
     ports:
       - "8080:8080"
